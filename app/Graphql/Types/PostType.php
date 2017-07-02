@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Types;
+namespace App\Graphql\Types;
 
 use GraphQL\Type\Definition\Type;
 use Folklore\GraphQL\Support\Type as GraphQLType;
@@ -9,7 +9,7 @@ class PostType extends GraphQLType {
 
     protected $attributes = [
         'name' => 'Post',
-        'description' => 'The Schema of a Comment Type'
+        'description' => 'The Schema of a Post Type'
     ];
 
     public function fields()

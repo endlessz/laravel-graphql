@@ -98,10 +98,10 @@ return [
     'schemas' => [
         'default' => [
             'query' => [
-                'posts' => 'App\Queries\PostQuery'
+                'posts' => 'App\Graphql\Queries\PostQuery'
             ],
             'mutation' => [
-
+                'createPost'    => 'App\Graphql\Mutations\CreatePostMutation'
             ]
         ]
     ],
@@ -122,7 +122,7 @@ return [
     // ]
     //
     'types' => [
-        'Post' => 'App\Types\PostType'
+        'Post' => 'App\Graphql\Types\PostType'
     ],
 
     // This callable will received every Error objects for each errors GraphQL catch.
