@@ -101,7 +101,8 @@ return [
                 'posts' => 'App\Graphql\Queries\PostQuery'
             ],
             'mutation' => [
-                'createPost'    => 'App\Graphql\Mutations\CreatePostMutation'
+                'createPost'    => 'App\Graphql\Mutations\CreatePostMutation',
+                'deletePost'    => 'App\Graphql\Mutations\DeletePostMutation',
             ]
         ]
     ],
