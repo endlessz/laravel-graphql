@@ -21,8 +21,16 @@ class CreatePostMutation extends Mutation {
 	public function args()
 	{
 		return [
-			'title' => ['name' => 'title', 'type' => Type::nonNull(Type::string())],
-			'content' => ['name' => 'content', 'type' => Type::nonNull(Type::string())]
+			'title' 	=> ['name' => 'title', 'type' => Type::string()],
+			'content' 	=> ['name' => 'content', 'type' => Type::string()]
+		];
+	}
+
+	public function rules()
+	{
+		return [
+			'title'	 	=> ['required'],
+			'content' 	=> ['required']
 		];
 	}
 
