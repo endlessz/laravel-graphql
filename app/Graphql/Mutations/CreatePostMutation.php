@@ -22,7 +22,8 @@ class CreatePostMutation extends Mutation {
 	{
 		return [
 			'title' 	=> ['name' => 'title', 'type' => Type::string()],
-			'content' 	=> ['name' => 'content', 'type' => Type::string()]
+			'content' 	=> ['name' => 'content', 'type' => Type::string()],
+			'user_id' 	=> ['name' => 'user_id', 'type' => Type::int()],
 		];
 	}
 
@@ -30,7 +31,8 @@ class CreatePostMutation extends Mutation {
 	{
 		return [
 			'title'	 	=> ['required'],
-			'content' 	=> ['required']
+			'content' 	=> ['required'],
+			'user_id' 	=> ['required']
 		];
 	}
 
@@ -39,6 +41,7 @@ class CreatePostMutation extends Mutation {
 		$post = Post::create([
 			'title' 	=> $args['title'],
 			'content'	=> $args['content'],
+			'user_id'	=> $args['user_id'],
 		]);
 
 		return $post;

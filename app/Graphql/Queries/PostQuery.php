@@ -21,9 +21,10 @@ class PostQuery extends Query {
 	public function args()
 	{
 		return [
-			'id' => ['name' => 'id', 'type' => Type::int()],
-			'title' => ['name' => 'title', 'type' => Type::string()],
-			'content' => ['name' => 'content', 'type' => Type::string()],
+			'id' 		 => ['name' => 'id', 'type' => Type::int()],
+			'title'	     => ['name' => 'title', 'type' => Type::string()],
+			'content' 	 => ['name' => 'content', 'type' => Type::string()],
+			'user_id'	 => ['name' => 'user_id', 'type' => Type::int()],
 			'created_at' => ['name' => 'content', 'type' => Type::string()],
 			'updated_at' => ['name' => 'content', 'type' => Type::string()]
 		];
@@ -41,6 +42,10 @@ class PostQuery extends Query {
 		
 		if (isset($args['content'])) {
 			return Post::where('content', $args['content'])->get();
+		}
+
+		if (isset($args['user_id'])) {
+			return Post::where('user_id', $args['user_id'])->get();
 		}
 
 		return Post::all();
