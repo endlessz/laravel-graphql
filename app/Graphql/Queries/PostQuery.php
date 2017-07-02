@@ -31,21 +31,18 @@ class PostQuery extends Query {
 
 	public function resolve($root, $args)
 	{
-		if(isset($args['id']))
-		{
-			return Post::where('id' , $args['id'])->get();
+		if (isset($args['id'])) {
+			return Post::where('id', $args['id'])->get();
 		}
-		else if(isset($args['title']))
-		{
+		
+		if (isset($args['title'])) {
 			return Post::where('title', $args['title'])->get();
 		}
-		else if(isset($args['content']))
-		{
+		
+		if (isset($args['content'])) {
 			return Post::where('content', $args['content'])->get();
 		}
-		else
-		{
-			return Post::all();
-		}
+
+		return Post::all();
 	}
 }
