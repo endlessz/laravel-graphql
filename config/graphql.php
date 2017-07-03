@@ -103,6 +103,7 @@ return [
             ],
             'mutation' => [
                 'createPost'    => 'App\Graphql\Mutations\CreatePostMutation',
+                'updatePost'    => 'App\Graphql\Mutations\UpdatePostMutation',
                 'deletePost'    => 'App\Graphql\Mutations\DeletePostMutation',
             ]
         ]

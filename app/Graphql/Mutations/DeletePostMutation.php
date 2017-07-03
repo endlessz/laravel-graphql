@@ -35,7 +35,5 @@ class DeletePostMutation extends Mutation {
 		}
 
 		$post->delete();
-
-		return true;
 	}
 }
