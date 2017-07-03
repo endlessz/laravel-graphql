@@ -66,16 +66,9 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
-                </div>
-            @endif
+            <div class="top-right links">
+                <a href="/graphiql">Go to console</a>
+            </div>
 
             <div class="content">
                 <div class="title m-b-md">
@@ -83,7 +76,9 @@
                 </div>
 
                 <div class="links">
-                    <a href="/graphiql">Go to console</a>
+                    <a href="http://graphql.org/" target="_blank">What is GraphQL?</a>
+                    <a href="https://enrise.com/2016/10/why-we-use-graphql/" target="_blank">Why is GraphQL?</a>
+                    <a href="https://github.com/Folkloreatelier/laravel-graphql" target="_blank">How to use it in Laravel?</a>
                 </div>
             </div>
         </div>
