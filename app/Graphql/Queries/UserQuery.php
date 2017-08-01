@@ -23,24 +23,32 @@ class UserQuery extends Query
 	public function args()
 	{
 		return [
-			'id' => ['name' => 'id', 'type' => Type::string()],
+			'id' => ['name' => 'id', 'type' => Type::int()],
 			'name' => ['name' => 'name', 'type' => Type::string()],
-			'email' => ['name' => 'email', 'type' => Type::string()]
+			'email' => ['name' => 'email', 'type' => Type::string()],
+			'paginate'	 => ['name' => 'paginate', 'type' => Type::int()],
+			'page'		 => ['name' => 'page', 'type' => Type::int()],
 		];
 	}
 
-	public function resolve($root, $args, $context, ResolveInfo $info)
+	public function resolve($root, $args)
 	{
-		$fields = $info->getFieldSelection($depth = 3);
+		$userBuilder = new User;
+		$paginate = $args['paginate'] ?? 5;
+		$page =  $args['page'] ?? 1;
 
-		$users = User::query();
-
-		foreach ($fields as $field => $keys) {
-			if ($field === 'posts') {
-				$users->with('posts');
-			}
+		if (isset($args['id'])) {
+			return $userBuilder->where('id', $args['id'])->get();
+		}
+		
+		if (isset($args['name'])) {
+			$userBuilder->where('name', 'like', $args['name'] . '%');
 		}
 
-		return $users->get();
+		if (isset($args['email'])) {
+			$userBuilder->where('email', $args['email']);
+		}
+
+		return $userBuilder->paginate($paginate, ['*'], 'page', $page);
 	}
 }

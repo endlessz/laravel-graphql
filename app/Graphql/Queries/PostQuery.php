@@ -35,7 +35,7 @@ class PostQuery extends Query {
 
 	public function resolve($root, $args)
 	{
-		$postBuilder = \DB::table('posts');
+		$postBuilder = new Post;
 		$paginate = $args['paginate'] ?? 5;
 		$page =  $args['page'] ?? 1;
 
