@@ -1,0 +1,48 @@
+# Your project could have own hostname & database by edit lines marked with double sharp (##)
+version: '2'
+
+services:
+
+  # Database with specific configurations (eg. no strict transactions)
+  db:
+    image: mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./.data/mysql:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: laraql
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: laraql
+      MYSQL_PASSWORD: maq3its0
+
+  cache:
+    image: redis
+    ports:
+      - "6379:6379"
+
+  # Bundle all needed libraries here (eg. locales, phpunit, artisan commands, etc.)
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - db
+    ports:
+    - "8080:80"
+    environment:
+      PMA_USER: root
+      PMA_PASSWORD: root
+
+  web:
+    build: .
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www/html
+      - ./docker/apache/sites-enabled:/etc/apache2/sites-enabled
+    links:
+      - db
+      - cache
+    networks:
+      default:
+        aliases:
+          - laraql.dev
