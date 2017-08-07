@@ -15976,10 +15976,10 @@ module.exports = __webpack_require__(52);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuetify__ = __webpack_require__(74);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuetify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vuetify__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuetify__ = __webpack_require__(74);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuetify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vuetify__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_apollo_client__ = __webpack_require__(75);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_apollo__ = __webpack_require__(117);
 
@@ -15997,9 +15997,6 @@ window.Vue = __webpack_require__(28);
 
 
 
-// Components
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('posts', __webpack_require__(118));
-
 var apolloClient = new __WEBPACK_IMPORTED_MODULE_2_apollo_client__["a" /* ApolloClient */]({
   networkInterface: Object(__WEBPACK_IMPORTED_MODULE_2_apollo_client__["b" /* createBatchingNetworkInterface */])({
     uri: '/graphql'
@@ -16008,14 +16005,17 @@ var apolloClient = new __WEBPACK_IMPORTED_MODULE_2_apollo_client__["a" /* Apollo
   connectToDevTools: true
 });
 
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_0_vuetify___default.a);
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_3_vue_apollo__["a" /* default */]);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuetify___default.a);
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_3_vue_apollo__["a" /* default */]);
+
+// Components
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('posts', __webpack_require__(118));
 
 var apolloProvider = new __WEBPACK_IMPORTED_MODULE_3_vue_apollo__["a" /* default */]({
   defaultClient: apolloClient
 });
 
-var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
+var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
   el: '#app',
   apolloProvider: apolloProvider
 });
@@ -53714,27 +53714,52 @@ function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defi
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 var postsQuery = __WEBPACK_IMPORTED_MODULE_0_graphql_tag___default()(_templateObject);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	data: function data() {
-		return {
-			posts: [],
-			loading: 0
-		};
-	},
-	apollo: {
-		posts: {
-			query: postsQuery,
-			loadingKey: 'loading',
-			result: function result(data) {
-				console.log(data);
-			}
+		data: function data() {
+				return {
+						posts: [],
+						loading: 0
+				};
+		},
+		apollo: {
+				posts: {
+						query: postsQuery,
+						loadingKey: 'loading',
+						result: function result(data) {
+								console.log(data);
+						}
+				}
+		},
+		methods: {
+				generateImageUrl: function generateImageUrl(id) {
+						return 'http://lorempixel.com/400/200/sports/' + id;
+				}
 		}
-	}
 });
 
 /***/ }),
@@ -53744,9 +53769,52 @@ var postsQuery = __WEBPACK_IMPORTED_MODULE_0_graphql_tag___default()(_templateOb
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "container"
-  }, [(_vm.loading > 0) ? [_vm._v("\n\t      Loading\n\t    ")] : [_c('ul', _vm._l((_vm.posts), function(post) {
-    return _c('li', [_vm._v("\n\t          " + _vm._s(post.title) + "\n\t        ")])
-  }))]], 2)
+  }, [(_vm.loading > 0) ? [_c('center', [_c('v-progress-circular', {
+    staticClass: "primary--text mt-5",
+    attrs: {
+      "indeterminate": "",
+      "size": 70,
+      "width": 5
+    }
+  })], 1)] : [_vm._l((_vm.posts), function(post) {
+    return [_c('v-layout', [_c('v-flex', {
+      attrs: {
+        "xs12": "",
+        "sm6": "",
+        "offset-sm3": ""
+      }
+    }, [_c('v-card', [_c('v-card-media', {
+      attrs: {
+        "src": _vm.generateImageUrl(post.id),
+        "height": "200px"
+      }
+    }), _vm._v(" "), _c('v-card-title', {
+      attrs: {
+        "primary-title": ""
+      }
+    }, [_c('div', [_c('h3', {
+      staticClass: "headline mb-0"
+    }, [_c('a', {
+      staticStyle: {
+        "text-decoration": "none"
+      },
+      attrs: {
+        "href": ""
+      }
+    }, [_vm._v(_vm._s(post.title))])]), _vm._v(" "), _c('div', [_vm._v(_vm._s(post.content))])])]), _vm._v(" "), _c('v-card-actions', [_c('v-btn', {
+      staticClass: "blue--text",
+      attrs: {
+        "flat": ""
+      }
+    }, [_vm._v("Like")]), _vm._v(" "), _c('v-btn', {
+      staticClass: "blue--text",
+      attrs: {
+        "flat": ""
+      }
+    }, [_vm._v("Share")])], 1)], 1)], 1)], 1), _vm._v(" "), _c('p', {
+      staticClass: "mt-1"
+    }, [_vm._v("...")])]
+  })]], 2)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

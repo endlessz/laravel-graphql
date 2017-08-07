@@ -8,13 +8,10 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-import Vuetify from 'vuetify'
 import Vue from 'vue';
+import Vuetify from 'vuetify'
 import { ApolloClient, createBatchingNetworkInterface } from 'apollo-client';
 import VueApollo from 'vue-apollo';
-
-// Components
-Vue.component('posts', require('./components/Posts.vue'));
 
 const apolloClient = new ApolloClient({
   networkInterface: createBatchingNetworkInterface({
@@ -26,6 +23,9 @@ const apolloClient = new ApolloClient({
 
 Vue.use(Vuetify)
 Vue.use(VueApollo);
+
+// Components
+Vue.component('posts', require('./components/Posts.vue'));
 
 const apolloProvider = new VueApollo({
   defaultClient: apolloClient,
