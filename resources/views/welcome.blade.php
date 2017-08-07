@@ -79,6 +79,7 @@
                     <a href="http://graphql.org/" target="_blank">What is GraphQL?</a>
                     <a href="https://enrise.com/2016/10/why-we-use-graphql/" target="_blank">Why is GraphQL?</a>
                     <a href="https://github.com/Folkloreatelier/laravel-graphql" target="_blank">How to use it in Laravel?</a>
+                    <a href="/posts" target="_blank">Front End Implementation</a>
                 </div>
             </div>
         </div>
