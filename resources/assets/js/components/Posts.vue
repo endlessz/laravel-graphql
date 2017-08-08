@@ -6,7 +6,7 @@
 		    </center>
 	    </template>
 	    <template v-else>
-	    	<template class="mt-2" v-for="post in posts">
+	    	<template class="mt-2 mb-2" v-for="post in posts">
 		       <v-layout>
 		        	<v-flex xs12 sm6 offset-sm3>
 					    <v-card>
@@ -27,6 +27,7 @@
 					      </v-card>
 			      	</v-flex>
 			  	</v-layout>
+			  	<div class="mb-3"></div>
 		  	</template>
 	    </template>
     </div>

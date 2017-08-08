@@ -10,4 +10,9 @@ class PostController extends Controller
     {
     	return view('laraql.posts.index');
     }
+
+    public function create()
+    {
+    	return view('laraql.posts.create');
+    }
 }

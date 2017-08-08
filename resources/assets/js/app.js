@@ -4,7 +4,7 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-require('./bootstrap');
+
 
 window.Vue = require('vue');
 
@@ -26,6 +26,7 @@ Vue.use(VueApollo);
 
 // Components
 Vue.component('posts', require('./components/Posts.vue'));
+Vue.component('create-post', require('./components/CreatePost.vue'));
 
 const apolloProvider = new VueApollo({
   defaultClient: apolloClient,
