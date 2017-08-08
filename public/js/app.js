@@ -53733,7 +53733,6 @@ function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defi
 //
 //
 //
-//
 
 
 
@@ -53757,7 +53756,7 @@ var postsQuery = __WEBPACK_IMPORTED_MODULE_0_graphql_tag___default()(_templateOb
 		},
 		methods: {
 				generateImageUrl: function generateImageUrl(id) {
-						return 'http://lorempixel.com/400/200/sports/' + id;
+						return 'http://lorempixel.com/700/200/sports/' + id;
 				}
 		}
 });
@@ -53811,9 +53810,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "flat": ""
       }
-    }, [_vm._v("Share")])], 1)], 1)], 1)], 1), _vm._v(" "), _c('p', {
-      staticClass: "mt-1"
-    }, [_vm._v("...")])]
+    }, [_vm._v("Share")])], 1)], 1)], 1)], 1)]
   })]], 2)
 },staticRenderFns: []}
 module.exports.render._withStripped = true

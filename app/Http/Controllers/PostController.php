@@ -8,6 +8,6 @@ class PostController extends Controller
 {
     public function getIndex()
     {
-    	return view('laraql.posts');
+    	return view('laraql.posts.index');
     }
 }
