@@ -67,6 +67,7 @@
 					},
 				}).then(data => {
 			    	console.log('Done Create Post.');
+			    	window.location.href = '/posts';
 			    }).catch((error) => {
 			      	console.error(error)
 			    });

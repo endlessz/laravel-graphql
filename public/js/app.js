@@ -35250,6 +35250,7 @@ var createPostMutation = __WEBPACK_IMPORTED_MODULE_0_graphql_tag___default()(_te
 				}
 			}).then(function (data) {
 				console.log('Done Create Post.');
+				window.location.href = '/posts';
 			}).catch(function (error) {
 				console.error(error);
 			});

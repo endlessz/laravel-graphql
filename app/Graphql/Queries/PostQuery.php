@@ -51,6 +51,6 @@ class PostQuery extends Query {
 			$postBuilder->where('user_id', $args['user_id']);
 		}
 
-		return $postBuilder->paginate($paginate, ['*'], 'page', $page);
+		return $postBuilder->orderBy('id', 'DESC')->paginate($paginate, ['*'], 'page', $page);
 	}
 }
