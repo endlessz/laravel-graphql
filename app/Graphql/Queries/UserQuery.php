@@ -42,11 +42,11 @@ class UserQuery extends Query
 		}
 		
 		if (isset($args['name'])) {
-			$userBuilder->where('name', 'like', $args['name'] . '%');
+			$userBuilder = $userBuilder->where('name', 'like', $args['name'] . '%');
 		}
 
 		if (isset($args['email'])) {
-			$userBuilder->where('email', $args['email']);
+			$userBuilder = $userBuilder->where('email', $args['email']);
 		}
 
 		return $userBuilder->paginate($paginate, ['*'], 'page', $page);

@@ -44,11 +44,11 @@ class PostQuery extends Query {
 		}
 		
 		if (isset($args['title'])) {
-			$postBuilder->where('title', 'like', $args['title'] . '%');
+			$postBuilder = $postBuilder->where('title', 'like', $args['title'] . '%');
 		}
 
 		if (isset($args['user_id'])) {
-			$postBuilder->where('user_id', $args['user_id']);
+			$postBuilder = $postBuilder->where('user_id', $args['user_id']);
 		}
 
 		return $postBuilder->orderBy('id', 'DESC')->paginate($paginate, ['*'], 'page', $page);
